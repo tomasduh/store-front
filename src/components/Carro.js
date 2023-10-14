@@ -25,7 +25,7 @@ const styles = {
 class Carro extends Component{
 
     render(){
-        const { carro, esCarroVisible, mostrarCarro, hacerPedido, handleLogout, isAuthenticated, handleLogin} = this.props
+        const { carro, esCarroVisible, mostrarCarro, hacerPedido, handleLogout, isAuthenticated, handleLogin, pedidos} = this.props
         const cantidad  = carro.reduce((acc, el) => acc + el.cantidad, 0)
         return (
             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -39,7 +39,8 @@ class Carro extends Component{
                 {esCarroVisible ? <DetalleCarro carro={carro}
                 hacerPedido={hacerPedido}/>
                 : null}
-                <Sesion 
+                <Sesion
+                    pedidos={pedidos}
                     handleLogout={handleLogout}
                     isAuthenticated = {isAuthenticated}
                     handleLogin={handleLogin}

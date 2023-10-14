@@ -15,11 +15,12 @@ const style = {
 }
 
 function Navbar(props) {
-        const { carro, esCarroVisible, mostrarCarro, hacerPedido, isAuthenticated, handleLogout, handleLogin} = props
+        const { carro, esCarroVisible, mostrarCarro, hacerPedido, isAuthenticated, handleLogout, handleLogin, pedidos} = props
         return( 
             <nav style={style.navbar}>
                 <Logo/>
                 <Carro 
+                    pedidos={pedidos}
                     handleLogout={handleLogout}
                     isAuthenticated = {isAuthenticated}
                     handleLogin={handleLogin}

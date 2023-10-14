@@ -18,9 +18,14 @@ const styles = {
 class Sesion extends Component{
 
     render(){
-        const {isAuthenticated, handleLogout, handleLogin} = this.props
+        const {isAuthenticated, handleLogout, handleLogin, pedidos} = this.props
         return(
             <div> 
+                {isAuthenticated === true ? 
+                <button onClick={pedidos} style={styles.sesion}>
+                    Pedidos
+                </button>: null
+                }
                 {isAuthenticated === false ? 
                 <button onClick={handleLogout} style={styles.sesion}>
                     Log In

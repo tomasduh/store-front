@@ -44,7 +44,11 @@ function Login(props) {
             .then((data) => {
                 setIsAuthenticated(true);
                 setCliente(data);
-                navigate("/");
+                if(data.admin){
+                    navigate('/historial');}
+                else{
+                    navigate("/");
+                }
             })
             .catch((error) => {
                 console.error('Error en la solicitud:', error.message);

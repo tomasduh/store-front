@@ -78,7 +78,10 @@ function Home(props) {
         setEsCarroVisible(false);
       })
       .catch(error => {
-        
+        alert('Error en el peridodo: ' + error.message);
+      })
+      .finally(() => {
+        alert('Pedido realizado con éxito');
       });
   }
 
@@ -92,9 +95,18 @@ function Home(props) {
     navigate('/login');
   };
 
+  const pedidos = () => {
+    if(cliente.admin){
+      navigate('/historial');
+    }else{
+      navigate('/pedidos');
+    }
+  }
+
   return (
     <div>
       <Navbar 
+        pedidos={pedidos}
         carro={carro} 
         esCarroVisible={esCarroVisible} 
         mostrarCarro={mostrarCarro} 
@@ -104,7 +116,7 @@ function Home(props) {
         isAuthenticated={isAuthenticated}
       />
       <Layout>
-        <Title />
+        <Title>Tienda</Title>
         <Productos
           agregarAlCarro={agregarAlCarro}
           productos={productos}
