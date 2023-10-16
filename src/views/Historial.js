@@ -4,6 +4,7 @@ import Title from "../components/Title";
 import { useNavigate } from 'react-router-dom';
 import NavbarPedidos from "../components/NavbarPedidos";
 import HistorialPedidos from "../components/HistorialPedidos";
+import Footer from "../components/Footer";
 
 function Historial(props) {
     const { cliente } = props;
@@ -41,6 +42,7 @@ function Historial(props) {
             <Title>Historial de Pedidos Clientes</Title>
             <HistorialPedidos pedidos={pedidos} cliente={cliente}/>
           </Layout>
+          <Footer/>
         </div>
       );
 }

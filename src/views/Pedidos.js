@@ -4,6 +4,7 @@ import Title from "../components/Title";
 import { useNavigate } from 'react-router-dom';
 import NavbarPedidos from "../components/NavbarPedidos";
 import HistorialPedidos from "../components/HistorialPedidos";
+import Footer from "../components/Footer";
 
 function Pedidos(props) {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ function Pedidos(props) {
         <Title>Mis Pedidos</Title>
         <HistorialPedidos pedidos={pedidos} cliente={cliente}/>
       </Layout>
+      <Footer/>
     </div>
   );
 }

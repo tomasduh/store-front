@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import '../styles/LoginCart.css'
+import Footer from "../components/Footer";
 
 
 function Login(props) {
@@ -63,34 +64,37 @@ function Login(props) {
     }
         
     return(
-        <div className="back-image">
-            <div className="login">
-                <form onSubmit={handleSubmit}>
-                    <h2>Iniciar Sesión</h2>
-                    <div>
-                        <label>Email</label>
-                        <input className="input"
-                        type="email"
-                        name="email"
-                        value={email.toString()}
-                        onChange={handleInputChange}
-                        placeholder="ejemplo@correo.com"
-                        autoComplete="current-email"
-                        />
-                    </div>
-                    <div>
-                        <label>Contraseña</label>
-                        <input className="input"
-                        type="password"
-                        name="password"
-                        value={password.toString()}
-                        onChange={handleInputChange}
-                        placeholder="******"
-                        autoComplete="current-password"/>
-                    </div>
-                    <Button className="btn-login" type="submit">Iniciar Sesión</Button>
-                </form>
+        <div>
+            <div className="back-image">
+                <div className="login">
+                    <form onSubmit={handleSubmit}>
+                        <h2>Iniciar Sesión</h2>
+                        <div>
+                            <label>Email</label>
+                            <input className="input"
+                            type="email"
+                            name="email"
+                            value={email.toString()}
+                            onChange={handleInputChange}
+                            placeholder="ejemplo@correo.com"
+                            autoComplete="current-email"
+                            />
+                        </div>
+                        <div>
+                            <label>Contraseña</label>
+                            <input className="input"
+                            type="password"
+                            name="password"
+                            value={password.toString()}
+                            onChange={handleInputChange}
+                            placeholder="******"
+                            autoComplete="current-password"/>
+                        </div>
+                        <Button className="btn-login" type="submit">Iniciar Sesión</Button>
+                    </form>
+                </div>
             </div>
+            <Footer/>
         </div>
     )
 }

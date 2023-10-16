@@ -4,7 +4,8 @@ const style = {
     layout:{
         alignItems: 'center',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginBottom: '35px'
     },
     container:{
         width: '1200px'

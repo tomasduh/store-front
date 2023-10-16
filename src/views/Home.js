@@ -4,6 +4,7 @@ import Productos from '../components/Productos'
 import Layout from '../components/Layout'
 import Title from "../components/Title";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Home(props) {
   const [productos, setProductos] = useState([]);
@@ -122,6 +123,7 @@ function Home(props) {
           productos={productos}
         />
       </Layout>
+      <Footer/>
     </div>
   )
 }
