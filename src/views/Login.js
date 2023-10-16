@@ -94,7 +94,6 @@ function Login(props) {
                     </form>
                 </div>
             </div>
-            <Footer/>
         </div>
     )
 }
