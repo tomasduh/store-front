@@ -1,3 +1,4 @@
+import '../styles/Pedido.css'
 const styles = {
     lista: {
         listStyle: 'none',
@@ -13,81 +14,101 @@ function HistorialPedidos(props) {
     return (
         <div>
             {cliente.admin === false ? 
-            <table className="border border border-slate-500 text-center">
-                <thead>
-                    <tr>
-                        <th className="border border-slate-300 px-4 py-2 bg-green-600">#</th>
-                        <th className="border border-slate-300 px-4 py-2 bg-green-600">Artículos</th>
-                        <th className="border border-slate-300 px-4 py-2 bg-green-600">Cantidad</th>
-                        <th className="border border-slate-300 px-4 py-2 bg-green-600">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {pedidos.map((pedido, index) => (
-                        <tr className="border border-slate-300 bg-green-200" key={pedido._id}>
-                            <td>{index + 1}</td>
-                            <td>
-                                <ul>
-                                    {pedido.pedido.map((articulo, index) => (
-                                        <li style={styles.lista} key={index}>
-                                            {articulo.producto.name}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </td>
-                            <td>
-                                <ul>
-                                    {pedido.pedido.map((articulo, index) => (
-                                        <li style={styles.lista} key={index}>
-                                            {articulo.cantidad}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </td>
-                            <td>{pedido.total}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            : 
-            <table className="border border border-slate-500 text-center">
-            <thead>
-                <tr>
-                    <th className="border border-slate-300 px-4 py-2 bg-green-600">#</th>
-                    <th className="border border-slate-300 px-4 py-2 bg-green-600">Usuario</th>
-                    <th className="border border-slate-300 px-4 py-2 bg-green-600">Artículos</th>
-                    <th className="border border-slate-300 px-4 py-2 bg-green-600">Cantidad</th>
-                    <th className="border border-slate-300 px-4 py-2 bg-green-600">Total</th>
-                </tr>
-            </thead>
-            <tbody>
+            <div className="ctn-cards">
+                <div className="card-container">
+                    <div className="card-column-user">
+                        <h2><b>Numero de Pedido</b></h2>
+                    </div>
+                    <div className="card-column-user">
+                        <h2><b>Artículos</b></h2>
+                    </div>
+                    <div className="card-column-user">
+                        <h2><b>Cantidad</b></h2>
+                    </div>
+                    <div className="card-column-user">
+                        <h2><b>Total</b></h2>
+                    </div>
+                </div>
                 {pedidos.map((pedido, index) => (
-                    <tr className="border border-slate-300 bg-green-200" key={pedido._id}>
-                        <td>{index + 1}</td>
-                        <td>{pedido.cliente.nombre}</td>
-                        <td>
+                    <div className="card-container" key={index}>
+                        <div className="card-column-user">
+                            <p>{index + 1}</p>
+                        </div>
+                        <div className="card-column-user">
                             <ul>
-                                {pedido.pedido.map((articulo, index) => (
-                                    <li style={styles.lista} key={index}>
+                                {pedido.pedido.map((articulo, subIndex) => (
+                                    <li style={styles.lista} key={subIndex}>
                                         {articulo.producto.name}
                                     </li>
                                 ))}
                             </ul>
-                        </td>
-                        <td>
+                        </div>
+                        <div className="card-column-user">
                             <ul>
-                                {pedido.pedido.map((articulo, index) => (
-                                    <li style={styles.lista} key={index}>
+                                {pedido.pedido.map((articulo, subIndex) => (
+                                    <li style={styles.lista} key={subIndex}>
                                         {articulo.cantidad}
                                     </li>
                                 ))}
                             </ul>
-                        </td>
-                        <td>{pedido.total}</td>
-                    </tr>
+                        </div>
+                        <div className="card-column-user">
+                            <p>{pedido.total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}$</p>
+                        </div>
+                    </div>
                 ))}
-            </tbody>
-            </table>
+            </div>
+            : 
+            <div className="ctn-cards">
+                <div className="card-container">
+                    <div className="card-column">
+                        <h2><b>Numero de Pedido</b></h2>
+                    </div>
+                    <div className="card-column">
+                        <h2><b>Usuario</b></h2>
+                    </div>
+                    <div className="card-column">
+                        <h2><b>Artículos</b></h2>
+                    </div>
+                    <div className="card-column">
+                        <h2><b>Cantidad</b></h2>
+                    </div>
+                    <div className="card-column">
+                        <h2><b>Total</b></h2>
+                    </div>
+                </div>
+                {pedidos.map((pedido, index) => (
+                    <div className="card-container" key={index}>
+                        <div className="card-column">
+                            <p>{index + 1}</p>
+                        </div>
+                        <div className="card-column">
+                            <p>{pedido.cliente.nombre}</p>
+                        </div>
+                        <div className="card-column">
+                            <ul>
+                                {pedido.pedido.map((articulo, subIndex) => (
+                                    <li style={styles.lista} key={subIndex}>
+                                        {articulo.producto.name}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="card-column">
+                            <ul>
+                                {pedido.pedido.map((articulo, subIndex) => (
+                                    <li style={styles.lista} key={subIndex}>
+                                        {articulo.cantidad}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="card-column">
+                            <p>{pedido.total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}$</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
             }
         </div>
     );
