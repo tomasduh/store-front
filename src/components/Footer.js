@@ -1,4 +1,6 @@
 import '../styles/Footer.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 function Footer(){
     return(
@@ -45,21 +47,25 @@ function Footer(){
                     <h6 className="footer-title"><b>REDES SOCIALES</b></h6>
                     <ul>
                         <li>
-                            <a href="https://www.instagram.com/interracafe/" target="_blank" rel="noreferrer">
-                                <i className="fa-brands fa-instagram"></i>
+                            <a href="https://www.instagram.com/unidades_uts/?hl=es" target="_blank" rel="noreferrer">
+                                <FontAwesomeIcon icon={faInstagram} size="lg" />
                             </a>
                         </li>
                         <li>
-                            <i className="fa-brands fa-facebook"></i>
+                            <a href="https://www.facebook.com/UnidadesTecnologicasdeSantanderUTS" target="_blank" rel="noreferrer">
+                                <FontAwesomeIcon icon={faFacebook} size="lg" />
+                            </a>  
                         </li>
                         <li>
-                            <i className="fa-brands fa-twitter"></i>
+                            <a href="https://twitter.com/Unidades_UTS" target="_blank" rel="noreferrer">
+                                <FontAwesomeIcon icon={faTwitter} size="lg" />
+                            </a>
                         </li>
                     </ul>
                 </article>
             </section>
             <section className="rights">
-                <span>  2023 Agroindustrias de Colombia. Todos los
+                <span>  2023 Unidades Tecnologicas de Santander. Todos los
                     derechos reservados.</span>
             </section>
         </footer>
